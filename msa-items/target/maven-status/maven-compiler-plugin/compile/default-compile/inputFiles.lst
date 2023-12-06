@@ -1,0 +1,15 @@
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/infrastructure/adapter/secondary/kafka/EnvioOperacionExitosaImpl.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/domain/entity/DebitarItemsEntity.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/domain/entity/CompensacionEntity.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/domain/entity/ItemEntity.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/application/port/primary/IPedidoUseCase.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/application/port/secondary/IEnvioMensaje.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/domain/entity/EnvioItemsEntity.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/domain/entity/CancelaItemsEntity.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/infrastructure/adapter/secondary/repository/jpa/RegistraPedidoRepositoryImpl.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/infrastructure/adapter/secondary/model/jpa/PedidoItemJPA.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/infrastructure/adapter/primary/kafka/MensajesKafka.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/infrastructure/adapter/secondary/model/jpa/DetallePedidoJPA.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/application/port/secondary/IPedidoRepository.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/domain/entity/RespuestaPeticion.java
+/home/rgorena/gitproyectos/kafka/msa-items/src/main/java/bo/gob/ruat/items/application/usecase/PedidoUseCaseImpl.java

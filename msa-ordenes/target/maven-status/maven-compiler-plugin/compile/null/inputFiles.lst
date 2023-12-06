@@ -1,0 +1,17 @@
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/domain/entity/EnvioItemsOrquestadorEntity.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/domain/entity/CompensacionEntity.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/application/port/secondary/IEnvioMensaje.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/application/usecase/OrdenUseCase.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/infrastructure/adapter/secondary/model/jpa/OrdenJPA.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/infrastructure/converter/IOrdenJPAConverter.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/infrastructure/adapter/secondary/repository/jpa/OrdenRepositoryImpl.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/application/port/secondary/IOrdenRepository.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/domain/entity/OrdenEntity.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/infrastructure/converter/IOrdenConverter.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/domain/entity/DatosPeticionEntity.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/infrastructure/adapter/secondary/kafka/MensajeriaKafkaEmitter.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/domain/entity/ItemEntity.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/infrastructure/adapter/primary/rest/OrdenRest.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/infrastructure/adapter/primary/rest/request/OrdenRequest.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/application/port/primary/IOrden.java
+/home/rgorena/gitproyectos/kafka/msa-ordenes/src/main/java/bo/gob/ruat/ordenes/infrastructure/adapter/primary/kafka/MensajesRecepcion.java

@@ -1,0 +1,11 @@
+/home/rgorena/gitproyectos/kafka/msa-inventario/src/main/java/bo/gob/ruat/inventario/application/port/secondary/IEnvioMensajes.java
+/home/rgorena/gitproyectos/kafka/msa-inventario/src/main/java/bo/gob/ruat/inventario/application/port/primary/IOperacionesInventario.java
+/home/rgorena/gitproyectos/kafka/msa-inventario/src/main/java/bo/gob/ruat/inventario/infrastructure/adapter/secondary/repository/jpa/InventarioRepositoryImpl.java
+/home/rgorena/gitproyectos/kafka/msa-inventario/src/main/java/bo/gob/ruat/inventario/application/usecase/OperacionesInventarioImpl.java
+/home/rgorena/gitproyectos/kafka/msa-inventario/src/main/java/bo/gob/ruat/inventario/application/port/secondary/IInventarioRepository.java
+/home/rgorena/gitproyectos/kafka/msa-inventario/src/main/java/bo/gob/ruat/inventario/domain/entity/RespuestaPeticionEntity.java
+/home/rgorena/gitproyectos/kafka/msa-inventario/src/main/java/bo/gob/ruat/inventario/infrastructure/adapter/primary/kafka/Mensaje.java
+/home/rgorena/gitproyectos/kafka/msa-inventario/src/main/java/bo/gob/ruat/inventario/infrastructure/adapter/secondary/kafka/EnvioMensajesImpl.java
+/home/rgorena/gitproyectos/kafka/msa-inventario/src/main/java/bo/gob/ruat/inventario/domain/entity/ItemEntity.java
+/home/rgorena/gitproyectos/kafka/msa-inventario/src/main/java/bo/gob/ruat/inventario/infrastructure/adapter/secondary/model/jpa/ItemInventarioJPA.java
+/home/rgorena/gitproyectos/kafka/msa-inventario/src/main/java/bo/gob/ruat/inventario/domain/entity/EnviotemsEntity.java

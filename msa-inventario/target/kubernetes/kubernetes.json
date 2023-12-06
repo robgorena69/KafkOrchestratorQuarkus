@@ -1,0 +1,120 @@
+[{
+  "apiVersion" : "v1",
+  "kind" : "Service",
+  "metadata" : {
+    "annotations" : {
+      "app.quarkus.io/commit-id" : "c03e9c8396e06840330ffceda0ded3dda36df0c4",
+      "app.quarkus.io/build-timestamp" : "2023-12-06 - 12:42:37 +0000"
+    },
+    "labels" : {
+      "app.kubernetes.io/name" : "msa-inventario",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
+      "app" : "msa-inventario"
+    },
+    "name" : "msa-inventario"
+  },
+  "spec" : {
+    "ports" : [ {
+      "name" : "http",
+      "port" : 80,
+      "targetPort" : 9070
+    } ],
+    "selector" : {
+      "app.kubernetes.io/name" : "msa-inventario",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT"
+    },
+    "type" : "ClusterIP"
+  }
+},{
+  "apiVersion" : "apps/v1",
+  "kind" : "Deployment",
+  "metadata" : {
+    "annotations" : {
+      "app.quarkus.io/commit-id" : "c03e9c8396e06840330ffceda0ded3dda36df0c4",
+      "app.quarkus.io/build-timestamp" : "2023-12-06 - 12:42:37 +0000"
+    },
+    "labels" : {
+      "app" : "msa-inventario",
+      "app.kubernetes.io/name" : "msa-inventario",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT"
+    },
+    "name" : "msa-inventario"
+  },
+  "spec" : {
+    "replicas" : 1,
+    "selector" : {
+      "matchLabels" : {
+        "app.kubernetes.io/name" : "msa-inventario",
+        "app.kubernetes.io/version" : "1.0.0-SNAPSHOT"
+      }
+    },
+    "template" : {
+      "metadata" : {
+        "annotations" : {
+          "app.quarkus.io/commit-id" : "c03e9c8396e06840330ffceda0ded3dda36df0c4",
+          "app.quarkus.io/build-timestamp" : "2023-12-06 - 12:42:37 +0000"
+        },
+        "labels" : {
+          "app" : "msa-inventario",
+          "app.kubernetes.io/name" : "msa-inventario",
+          "app.kubernetes.io/version" : "1.0.0-SNAPSHOT"
+        }
+      },
+      "spec" : {
+        "containers" : [ {
+          "env" : [ {
+            "name" : "KUBERNETES_NAMESPACE",
+            "valueFrom" : {
+              "fieldRef" : {
+                "fieldPath" : "metadata.namespace"
+              }
+            }
+          }, {
+            "name" : "LOGSTRANS_ELASTIC_INDEX_NAME",
+            "valueFrom" : {
+              "configMapKeyRef" : {
+                "key" : "index-name",
+                "name" : "mapa-logstrans-elastic"
+              }
+            }
+          }, {
+            "name" : "JAEGER_HOST_PORT",
+            "valueFrom" : {
+              "configMapKeyRef" : {
+                "key" : "host-port",
+                "name" : "mapa-jaeger"
+              }
+            }
+          }, {
+            "name" : "GELF_HOST",
+            "valueFrom" : {
+              "configMapKeyRef" : {
+                "key" : "host",
+                "name" : "mapa-gelf"
+              }
+            }
+          }, {
+            "name" : "GELF_PORT",
+            "valueFrom" : {
+              "configMapKeyRef" : {
+                "key" : "port",
+                "name" : "mapa-gelf"
+              }
+            }
+          }, {
+            "name" : "URL_DB_DOCUMENTACION",
+            "value" : "dburl"
+          } ],
+          "image" : "rgorena/msa-inventario:1.0.0-SNAPSHOT",
+          "imagePullPolicy" : "Always",
+          "name" : "msa-inventario",
+          "ports" : [ {
+            "containerPort" : 9070,
+            "name" : "http",
+            "protocol" : "TCP"
+          } ]
+        } ]
+      }
+    }
+  }
+}]

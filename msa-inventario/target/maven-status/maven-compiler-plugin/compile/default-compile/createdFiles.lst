@@ -1,0 +1,12 @@
+bo/gob/ruat/inventario/domain/entity/RespuestaPeticionEntity.class
+bo/gob/ruat/inventario/domain/entity/ItemEntity.class
+bo/gob/ruat/inventario/application/port/primary/IOperacionesInventario.class
+bo/gob/ruat/inventario/domain/entity/EnviotemsEntity.class
+bo/gob/ruat/inventario/application/port/secondary/IEnvioMensajes.class
+bo/gob/ruat/inventario/infrastructure/adapter/secondary/model/jpa/ItemInventarioJPA.class
+bo/gob/ruat/inventario/infrastructure/adapter/primary/kafka/Mensaje.class
+bo/gob/ruat/inventario/application/usecase/OperacionesInventarioImpl.class
+META-INF/panache-archive.marker
+bo/gob/ruat/inventario/infrastructure/adapter/secondary/repository/jpa/InventarioRepositoryImpl.class
+bo/gob/ruat/inventario/infrastructure/adapter/secondary/kafka/EnvioMensajesImpl.class
+bo/gob/ruat/inventario/application/port/secondary/IInventarioRepository.class

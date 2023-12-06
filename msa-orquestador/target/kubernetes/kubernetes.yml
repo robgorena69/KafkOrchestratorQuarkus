@@ -1,0 +1,84 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.quarkus.io/commit-id: c03e9c8396e06840330ffceda0ded3dda36df0c4
+    app.quarkus.io/build-timestamp: 2023-12-06 - 13:12:15 +0000
+  labels:
+    app.kubernetes.io/name: msa-orquestador
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+    app: msa-orquestador
+  name: msa-orquestador
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 9001
+  selector:
+    app.kubernetes.io/name: msa-orquestador
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.quarkus.io/commit-id: c03e9c8396e06840330ffceda0ded3dda36df0c4
+    app.quarkus.io/build-timestamp: 2023-12-06 - 13:12:15 +0000
+  labels:
+    app: msa-orquestador
+    app.kubernetes.io/name: msa-orquestador
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+  name: msa-orquestador
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: msa-orquestador
+      app.kubernetes.io/version: 1.0.0-SNAPSHOT
+  template:
+    metadata:
+      annotations:
+        app.quarkus.io/commit-id: c03e9c8396e06840330ffceda0ded3dda36df0c4
+        app.quarkus.io/build-timestamp: 2023-12-06 - 13:12:15 +0000
+      labels:
+        app: msa-orquestador
+        app.kubernetes.io/name: msa-orquestador
+        app.kubernetes.io/version: 1.0.0-SNAPSHOT
+    spec:
+      containers:
+        - env:
+            - name: KUBERNETES_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: LOGSTRANS_ELASTIC_INDEX_NAME
+              valueFrom:
+                configMapKeyRef:
+                  key: index-name
+                  name: mapa-logstrans-elastic
+            - name: URL_DB_ORQUESTADOR
+              value: dburl
+            - name: JAEGER_HOST_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: host-port
+                  name: mapa-jaeger
+            - name: GELF_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: port
+                  name: mapa-gelf
+            - name: GELF_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: host
+                  name: mapa-gelf
+          image: rgorena/msa-orquestador:1.0.0-SNAPSHOT
+          imagePullPolicy: Always
+          name: msa-orquestador
+          ports:
+            - containerPort: 9001
+              name: http
+              protocol: TCP
