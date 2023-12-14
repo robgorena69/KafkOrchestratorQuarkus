@@ -1,0 +1,120 @@
+[{
+  "apiVersion" : "v1",
+  "kind" : "Service",
+  "metadata" : {
+    "annotations" : {
+      "app.quarkus.io/commit-id" : "50f3e839411c265fc832973f3602a9ae41682012",
+      "app.quarkus.io/build-timestamp" : "2023-12-14 - 20:09:12 +0000"
+    },
+    "labels" : {
+      "app.kubernetes.io/name" : "msa-orquestador",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
+      "app" : "msa-orquestador"
+    },
+    "name" : "msa-orquestador"
+  },
+  "spec" : {
+    "ports" : [ {
+      "name" : "http",
+      "port" : 80,
+      "targetPort" : 9001
+    } ],
+    "selector" : {
+      "app.kubernetes.io/name" : "msa-orquestador",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT"
+    },
+    "type" : "ClusterIP"
+  }
+},{
+  "apiVersion" : "apps/v1",
+  "kind" : "Deployment",
+  "metadata" : {
+    "annotations" : {
+      "app.quarkus.io/commit-id" : "50f3e839411c265fc832973f3602a9ae41682012",
+      "app.quarkus.io/build-timestamp" : "2023-12-14 - 20:09:12 +0000"
+    },
+    "labels" : {
+      "app" : "msa-orquestador",
+      "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
+      "app.kubernetes.io/name" : "msa-orquestador"
+    },
+    "name" : "msa-orquestador"
+  },
+  "spec" : {
+    "replicas" : 1,
+    "selector" : {
+      "matchLabels" : {
+        "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
+        "app.kubernetes.io/name" : "msa-orquestador"
+      }
+    },
+    "template" : {
+      "metadata" : {
+        "annotations" : {
+          "app.quarkus.io/commit-id" : "50f3e839411c265fc832973f3602a9ae41682012",
+          "app.quarkus.io/build-timestamp" : "2023-12-14 - 20:09:12 +0000"
+        },
+        "labels" : {
+          "app" : "msa-orquestador",
+          "app.kubernetes.io/version" : "1.0.0-SNAPSHOT",
+          "app.kubernetes.io/name" : "msa-orquestador"
+        }
+      },
+      "spec" : {
+        "containers" : [ {
+          "env" : [ {
+            "name" : "KUBERNETES_NAMESPACE",
+            "valueFrom" : {
+              "fieldRef" : {
+                "fieldPath" : "metadata.namespace"
+              }
+            }
+          }, {
+            "name" : "GELF_PORT",
+            "valueFrom" : {
+              "configMapKeyRef" : {
+                "key" : "port",
+                "name" : "mapa-gelf"
+              }
+            }
+          }, {
+            "name" : "JAEGER_HOST_PORT",
+            "valueFrom" : {
+              "configMapKeyRef" : {
+                "key" : "host-port",
+                "name" : "mapa-jaeger"
+              }
+            }
+          }, {
+            "name" : "LOGSTRANS_ELASTIC_INDEX_NAME",
+            "valueFrom" : {
+              "configMapKeyRef" : {
+                "key" : "index-name",
+                "name" : "mapa-logstrans-elastic"
+              }
+            }
+          }, {
+            "name" : "GELF_HOST",
+            "valueFrom" : {
+              "configMapKeyRef" : {
+                "key" : "host",
+                "name" : "mapa-gelf"
+              }
+            }
+          }, {
+            "name" : "URL_DB_ORQUESTADOR",
+            "value" : "dburl"
+          } ],
+          "image" : "rcgorena/msa-orquestador:1.0.0-SNAPSHOT",
+          "imagePullPolicy" : "Always",
+          "name" : "msa-orquestador",
+          "ports" : [ {
+            "containerPort" : 9001,
+            "name" : "http",
+            "protocol" : "TCP"
+          } ]
+        } ]
+      }
+    }
+  }
+}]
